@@ -6,8 +6,10 @@
 (function($) {
     'use strict';
     
-    // Refresh interval - 2 seconds (2000ms) for live updates
-    const REFRESH_INTERVAL = 2000;
+    // Refresh interval - use configuration from PHP, default to 2000ms (2 seconds)
+    const REFRESH_INTERVAL = (typeof cricketLive !== 'undefined' && cricketLive.refreshInterval) 
+        ? parseInt(cricketLive.refreshInterval, 10) 
+        : 2000;
     
     // Store active refresh timers
     let refreshTimers = {};

@@ -56,7 +56,7 @@ class Cricket_Shortcodes {
         wp_localize_script('cricket-auto-refresh-js', 'cricketLive', [
             'ajaxUrl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('cricket_frontend_nonce'),
-            'refreshInterval' => 2000, // Hardcoded 2 seconds for live updates
+            'refreshInterval' => intval(get_option('cricket_refresh_interval', 2000)), // Use configurable setting
             'strings' => [
                 'loading' => __('Loading...', 'cricket-live-scores'),
                 'error' => __('Error loading data', 'cricket-live-scores'),
@@ -508,7 +508,7 @@ class Cricket_Shortcodes {
             <div class="match-info-section">
                 <div class="info-row">
                     <span class="info-label"><?php esc_html_e('Venue', 'cricket-live-scores'); ?></span>
-                    <span class="info-value"><?php echo esc_html($match->venue_name . ', ' . $match->venue_city); ?></span>
+                    <span class="info-value"><?php echo esc_html(trim($match->venue_name . ', ' . $match->venue_city, ', ')); ?></span>
                 </div>
                 <div class="info-row">
                     <span class="info-label"><?php esc_html_e('Date', 'cricket-live-scores'); ?></span>
