@@ -1,0 +1,411 @@
+/**
+ * Cricket Live Scores - Admin Styles
+ *
+ * Styles for the WordPress admin settings page.
+ *
+ * @package Cricket_Live_Scores
+ * @since 1.0.0
+ */
+
+/* Container Layout */
+.cricket-admin-wrap {
+    margin-right: 20px;
+}
+
+.cricket-admin-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.cricket-admin-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.cricket-admin-sidebar {
+    width: 350px;
+    flex-shrink: 0;
+}
+
+/* Section Styling */
+.cricket-admin-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.cricket-admin-section h2 {
+    margin: 0 0 15px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+/* Statistics Grid */
+.cricket-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.cricket-stat-box {
+    background: #f6f7f7;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.cricket-stat-number {
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a73e8;
+    line-height: 1.2;
+}
+
+.cricket-stat-label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Sync Table */
+.cricket-sync-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.cricket-sync-table th,
+.cricket-sync-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cricket-sync-table th {
+    background: #f6f7f7;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.cricket-sync-table td {
+    font-size: 13px;
+    color: #333;
+}
+
+.cricket-sync-btn {
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    height: auto !important;
+}
+
+.cricket-sync-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.cricket-sync-actions .button {
+    margin-right: 10px;
+}
+
+/* Settings Form */
+.cricket-admin-section .form-table th {
+    width: 180px;
+    padding: 15px 10px 15px 0;
+}
+
+.cricket-admin-section .form-table td {
+    padding: 15px 10px;
+}
+
+.cricket-admin-section .form-table input[type="text"],
+.cricket-admin-section .form-table input[type="url"],
+.cricket-admin-section .form-table input[type="number"],
+.cricket-admin-section .form-table input[type="password"] {
+    width: 100%;
+    max-width: 300px;
+}
+
+.cricket-admin-section .description {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* API Status */
+#cricket-api-status {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#cricket-api-status.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+#cricket-api-status.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+#cricket-api-status.loading {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Shortcode Documentation */
+.cricket-shortcode-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cricket-shortcode-item {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cricket-shortcode-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.cricket-shortcode-code {
+    display: inline-block;
+    background: #f0f0f1;
+    padding: 6px 10px;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 13px;
+    color: #1d2327;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cricket-shortcode-code:hover {
+    background: #dcdcde;
+}
+
+.cricket-shortcode-code.copied {
+    background: #d4edda;
+    color: #155724;
+}
+
+.cricket-shortcode-item p {
+    margin: 8px 0 0 0;
+    font-size: 13px;
+    color: #50575e;
+}
+
+.cricket-shortcode-item small {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #888;
+}
+
+/* Debug Logs */
+#cricket-logs-container {
+    margin-top: 15px;
+}
+
+#cricket-logs-content {
+    background: #1d2327;
+    color: #50fa7b;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 11px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    resize: vertical;
+}
+
+/* Buttons */
+.cricket-admin-section .button {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+/* Admin Notices */
+.cricket-admin-notice {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.cricket-admin-notice.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.cricket-admin-notice.error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Loading States */
+.cricket-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.cricket-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #1a73e8;
+    border-radius: 50%;
+    animation: cricket-spin 1s linear infinite;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+@keyframes cricket-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+    .cricket-admin-container {
+        flex-direction: column;
+    }
+    
+    .cricket-admin-sidebar {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .cricket-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cricket-sync-table {
+        font-size: 12px;
+    }
+    
+    .cricket-sync-table th,
+    .cricket-sync-table td {
+        padding: 8px;
+    }
+    
+    .cricket-admin-section .form-table th {
+        width: auto;
+        display: block;
+        padding-bottom: 5px;
+    }
+    
+    .cricket-admin-section .form-table td {
+        display: block;
+        padding-top: 0;
+    }
+}
+
+/* Tab Navigation for Admin */
+.cricket-admin-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #ccd0d4;
+    margin-bottom: 20px;
+}
+
+.cricket-admin-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cricket-admin-tab:hover {
+    color: #1a73e8;
+}
+
+.cricket-admin-tab.active {
+    color: #1a73e8;
+    border-bottom-color: #1a73e8;
+}
+
+/* Tooltip */
+.cricket-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.cricket-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1d2327;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    z-index: 100;
+}
+
+.cricket-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Badge */
+.cricket-admin-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.cricket-admin-badge.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.cricket-admin-badge.warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.cricket-admin-badge.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.cricket-admin-badge.info {
+    background: #d1ecf1;
+    color: #0c5460;
+}
