@@ -1,0 +1,451 @@
+/**
+ * Cricket Live Scores - Widget Styles
+ * Compact widget styles for live scores display
+ */
+
+/* Widget Container */
+.cricket-widget {
+    font-family: var(--cricket-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 360px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Widget Header */
+.cricket-widget-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #046a38 0%, #1a237e 100%);
+    color: #fff;
+}
+
+.cricket-widget-header .live-indicator {
+    width: 10px;
+    height: 10px;
+    background: #dc3545;
+    border-radius: 50%;
+    animation: pulse-widget 1.5s infinite;
+}
+
+@keyframes pulse-widget {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+    }
+}
+
+.widget-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Widget Body */
+.cricket-widget-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Widget Empty State */
+.cricket-widget-empty {
+    padding: 30px 20px;
+    text-align: center;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Widget Item */
+.cricket-widget-item {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+}
+
+.cricket-widget-item:last-child {
+    border-bottom: none;
+}
+
+.cricket-widget-item:hover {
+    background: #f8f9fa;
+}
+
+.cricket-widget-item a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Widget Match Header */
+.widget-match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.widget-competition {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.5px;
+}
+
+.widget-live-dot {
+    width: 8px;
+    height: 8px;
+    background: #dc3545;
+    border-radius: 50%;
+    animation: pulse-widget 1.5s infinite;
+}
+
+/* Widget Teams */
+.widget-teams {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.widget-team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.widget-team-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.widget-team-score {
+    font-size: 16px;
+    font-weight: 700;
+    color: #046a38;
+}
+
+/* Widget Status */
+.widget-status {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #2c3e50;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px;
+    background: rgba(4, 106, 56, 0.1);
+    border-radius: 4px;
+}
+
+/* ================================
+   Sidebar Widget Variations
+   ================================ */
+
+/* Smaller widget for narrow sidebars */
+.widget_cricket_live_scores .cricket-widget {
+    max-width: 100%;
+}
+
+.widget_cricket_live_scores .cricket-widget-header {
+    padding: 12px 15px;
+}
+
+.widget_cricket_live_scores .widget-title {
+    font-size: 14px;
+}
+
+.widget_cricket_live_scores .cricket-widget-item a {
+    padding: 12px 15px;
+}
+
+.widget_cricket_live_scores .widget-team {
+    padding: 6px 10px;
+}
+
+.widget_cricket_live_scores .widget-team-name {
+    font-size: 13px;
+}
+
+.widget_cricket_live_scores .widget-team-score {
+    font-size: 14px;
+}
+
+/* ================================
+   Multiple Match Widget
+   ================================ */
+
+.cricket-widget.cricket-multi-match {
+    max-height: none;
+}
+
+.cricket-widget.cricket-multi-match .cricket-widget-body {
+    max-height: 500px;
+}
+
+/* Match Separator */
+.cricket-widget-item + .cricket-widget-item {
+    border-top: 1px solid #e0e0e0;
+}
+
+/* ================================
+   Compact Mini Widget
+   ================================ */
+
+.cricket-widget.cricket-mini {
+    max-width: 280px;
+}
+
+.cricket-widget.cricket-mini .cricket-widget-header {
+    padding: 10px 15px;
+}
+
+.cricket-widget.cricket-mini .widget-title {
+    font-size: 13px;
+}
+
+.cricket-widget.cricket-mini .cricket-widget-item a {
+    padding: 10px 15px;
+}
+
+.cricket-widget.cricket-mini .widget-competition {
+    font-size: 10px;
+}
+
+.cricket-widget.cricket-mini .widget-team {
+    padding: 5px 8px;
+}
+
+.cricket-widget.cricket-mini .widget-team-name {
+    font-size: 12px;
+}
+
+.cricket-widget.cricket-mini .widget-team-score {
+    font-size: 13px;
+}
+
+.cricket-widget.cricket-mini .widget-status {
+    font-size: 11px;
+    padding: 6px;
+}
+
+/* ================================
+   Horizontal Widget Layout
+   ================================ */
+
+.cricket-widget.cricket-horizontal {
+    max-width: 100%;
+}
+
+.cricket-widget.cricket-horizontal .cricket-widget-body {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-height: none;
+    gap: 0;
+    scroll-snap-type: x mandatory;
+}
+
+.cricket-widget.cricket-horizontal .cricket-widget-item {
+    min-width: 280px;
+    flex-shrink: 0;
+    border-bottom: none;
+    border-right: 1px solid #e0e0e0;
+    scroll-snap-align: start;
+}
+
+.cricket-widget.cricket-horizontal .cricket-widget-item:last-child {
+    border-right: none;
+}
+
+/* ================================
+   Dark Theme Widget
+   ================================ */
+
+.cricket-widget.cricket-dark {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+.cricket-widget.cricket-dark .cricket-widget-header {
+    background: #2c2c2c;
+}
+
+.cricket-widget.cricket-dark .cricket-widget-empty {
+    color: #999;
+}
+
+.cricket-widget.cricket-dark .cricket-widget-item {
+    border-color: #333;
+}
+
+.cricket-widget.cricket-dark .cricket-widget-item:hover {
+    background: #2a2a2a;
+}
+
+.cricket-widget.cricket-dark .widget-competition {
+    color: #888;
+}
+
+.cricket-widget.cricket-dark .widget-team {
+    background: #2a2a2a;
+}
+
+.cricket-widget.cricket-dark .widget-team-name {
+    color: #fff;
+}
+
+.cricket-widget.cricket-dark .widget-status {
+    background: rgba(4, 106, 56, 0.2);
+    color: #fff;
+}
+
+/* ================================
+   Responsive Widget Styles
+   ================================ */
+
+@media (max-width: 768px) {
+    .cricket-widget {
+        max-width: 100%;
+        border-radius: 0;
+    }
+    
+    .cricket-widget-header {
+        padding: 12px 15px;
+    }
+    
+    .widget-title {
+        font-size: 14px;
+    }
+    
+    .cricket-widget-item a {
+        padding: 12px 15px;
+    }
+    
+    .widget-team-name {
+        font-size: 13px;
+    }
+    
+    .widget-team-score {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cricket-widget-header {
+        padding: 10px 12px;
+    }
+    
+    .widget-title {
+        font-size: 13px;
+    }
+    
+    .cricket-widget-item a {
+        padding: 10px 12px;
+    }
+    
+    .widget-competition {
+        font-size: 10px;
+    }
+    
+    .widget-team {
+        padding: 6px 10px;
+    }
+    
+    .widget-team-name {
+        font-size: 12px;
+    }
+    
+    .widget-team-score {
+        font-size: 14px;
+    }
+    
+    .widget-status {
+        font-size: 11px;
+        padding: 6px;
+    }
+}
+
+/* ================================
+   Scrollbar Styling
+   ================================ */
+
+.cricket-widget-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cricket-widget-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cricket-widget-body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.cricket-widget-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Firefox scrollbar */
+.cricket-widget-body {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* ================================
+   Loading State
+   ================================ */
+
+.cricket-widget.loading .cricket-widget-body {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.cricket-widget.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin: -12px 0 0 -12px;
+    border: 3px solid #046a38;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+   Animation for Updates
+   ================================ */
+
+.cricket-widget-item.updated {
+    animation: widget-highlight 0.5s ease;
+}
+
+@keyframes widget-highlight {
+    0% {
+        background-color: rgba(4, 106, 56, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
