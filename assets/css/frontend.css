@@ -1,0 +1,761 @@
+/**
+ * Cricket Live Scores - Frontend Styles
+ * Main styles for match display, cards, and single match pages
+ */
+
+/* CSS Variables */
+:root {
+    --cricket-primary: #046a38;
+    --cricket-secondary: #1a237e;
+    --cricket-live: #dc3545;
+    --cricket-success: #28a745;
+    --cricket-warning: #ffc107;
+    --cricket-dark: #2c3e50;
+    --cricket-light: #f8f9fa;
+    --cricket-border: #e0e0e0;
+    --cricket-text: #333;
+    --cricket-text-muted: #6c757d;
+    --cricket-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --cricket-radius: 8px;
+    --cricket-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Reset and Base */
+.cricket-matches-container,
+.cricket-single-match,
+.cricket-widget {
+    font-family: var(--cricket-font);
+    color: var(--cricket-text);
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.cricket-matches-container *,
+.cricket-single-match *,
+.cricket-widget * {
+    box-sizing: border-box;
+}
+
+/* Section Title */
+.cricket-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--cricket-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Live Indicator */
+.live-indicator {
+    width: 12px;
+    height: 12px;
+    background-color: var(--cricket-live);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* Matches List */
+.cricket-matches-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Match Card */
+.cricket-match-card {
+    background: #fff;
+    border-radius: var(--cricket-radius);
+    box-shadow: var(--cricket-shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--cricket-border);
+}
+
+.cricket-match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cricket-match-card.is-live {
+    border-left: 4px solid var(--cricket-live);
+}
+
+.match-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px;
+}
+
+/* Match Header */
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--cricket-border);
+}
+
+.match-format {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--cricket-text-muted);
+    background: var(--cricket-light);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.match-live-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--cricket-live);
+    padding: 4px 12px;
+    border-radius: 4px;
+    animation: pulse-bg 1.5s infinite;
+}
+
+@keyframes pulse-bg {
+    0%, 100% {
+        background-color: var(--cricket-live);
+    }
+    50% {
+        background-color: #c0392b;
+    }
+}
+
+.match-status {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--cricket-text-muted);
+    padding: 4px 10px;
+    background: var(--cricket-light);
+    border-radius: 4px;
+}
+
+/* Match Teams */
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.team-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    background: var(--cricket-light);
+    padding: 4px;
+}
+
+.team-logo-placeholder {
+    width: 48px;
+    height: 48px;
+    background: var(--cricket-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.team-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cricket-dark);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.team-score {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cricket-primary);
+}
+
+.match-vs {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cricket-text-muted);
+    padding: 0 10px;
+}
+
+/* Match Info */
+.match-info {
+    padding-top: 15px;
+    border-top: 1px solid var(--cricket-border);
+}
+
+.match-status-note,
+.match-result {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cricket-dark);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.match-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--cricket-text-muted);
+}
+
+.match-venue,
+.match-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* No Matches */
+.cricket-no-matches {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--cricket-light);
+    border-radius: var(--cricket-radius);
+    color: var(--cricket-text-muted);
+    font-size: 16px;
+}
+
+.cricket-error {
+    color: var(--cricket-live);
+    padding: 20px;
+    text-align: center;
+    background: #ffe6e6;
+    border-radius: var(--cricket-radius);
+}
+
+/* ================================
+   Single Match Page Styles
+   ================================ */
+
+.cricket-full-match {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: var(--cricket-radius);
+    box-shadow: var(--cricket-shadow);
+    overflow: hidden;
+}
+
+/* Match Full Header */
+.match-full-header {
+    background: linear-gradient(135deg, var(--cricket-primary) 0%, var(--cricket-secondary) 100%);
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.match-competition {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.match-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    line-height: 1.3;
+}
+
+.match-meta {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.match-format-badge {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.match-live-badge {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--cricket-live);
+    padding: 6px 14px;
+    border-radius: 20px;
+    animation: pulse-bg 1.5s infinite;
+}
+
+.match-status-badge {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* Score Section */
+.match-score-section {
+    padding: 30px;
+    background: #fafafa;
+}
+
+.team-score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: var(--cricket-radius);
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.team-score-row:last-child {
+    margin-bottom: 0;
+}
+
+.team-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.team-logo-large {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: var(--cricket-light);
+    padding: 4px;
+}
+
+.team-name-full {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cricket-dark);
+}
+
+.team-score-full {
+    text-align: right;
+}
+
+.team-score-full .score {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--cricket-primary);
+}
+
+.team-score-full .overs {
+    display: block;
+    font-size: 14px;
+    color: var(--cricket-text-muted);
+    margin-top: 4px;
+}
+
+/* Status Note Full */
+.match-status-note-full,
+.match-result-full {
+    background: var(--cricket-primary);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.match-result-full {
+    background: var(--cricket-success);
+}
+
+/* Live Stats */
+.match-live-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+    border-top: 1px solid var(--cricket-border);
+}
+
+.match-live-stats h3 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cricket-text-muted);
+    margin: 0 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--cricket-primary);
+}
+
+.live-batsmen,
+.live-bowler {
+    background: var(--cricket-light);
+    padding: 20px;
+    border-radius: var(--cricket-radius);
+}
+
+.batsman-row,
+.bowler-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cricket-border);
+}
+
+.batsman-row:last-child,
+.bowler-row:last-child {
+    border-bottom: none;
+}
+
+.batsman-name,
+.bowler-name {
+    font-weight: 600;
+    color: var(--cricket-dark);
+}
+
+.batsman-stats,
+.bowler-stats {
+    font-weight: 700;
+    color: var(--cricket-primary);
+}
+
+/* Recent Balls */
+.recent-balls {
+    grid-column: 1 / -1;
+}
+
+.balls-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ball-item {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 50%;
+    background: var(--cricket-light);
+    color: var(--cricket-dark);
+}
+
+.ball-wicket {
+    background: var(--cricket-live);
+    color: #fff;
+}
+
+.ball-four {
+    background: #28a745;
+    color: #fff;
+}
+
+.ball-six {
+    background: #6f42c1;
+    color: #fff;
+}
+
+.ball-extra {
+    background: #fd7e14;
+    color: #fff;
+}
+
+.ball-dot {
+    background: #6c757d;
+    color: #fff;
+}
+
+.ball-run {
+    background: var(--cricket-primary);
+    color: #fff;
+}
+
+/* Match Info Section */
+.match-info-section {
+    padding: 30px;
+    border-top: 1px solid var(--cricket-border);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cricket-border);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--cricket-text-muted);
+}
+
+.info-value {
+    color: var(--cricket-dark);
+    text-align: right;
+}
+
+/* Animation for score updates */
+.score-updated {
+    animation: highlight 0.5s ease;
+}
+
+.status-updated {
+    animation: highlight 0.5s ease;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: rgba(4, 106, 56, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* ================================
+   Responsive Styles
+   ================================ */
+
+@media (max-width: 768px) {
+    .cricket-section-title {
+        font-size: 20px;
+    }
+    
+    .cricket-matches-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .match-teams {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .team {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .team-logo,
+    .team-logo-placeholder {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .team-name {
+        flex: 1;
+        text-align: left;
+        margin: 0 10px;
+    }
+    
+    .team-score {
+        font-size: 20px;
+    }
+    
+    .match-vs {
+        display: none;
+    }
+    
+    .match-full-header {
+        padding: 20px;
+    }
+    
+    .match-title {
+        font-size: 22px;
+    }
+    
+    .match-score-section {
+        padding: 20px;
+    }
+    
+    .team-score-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .team-info {
+        flex-direction: column;
+    }
+    
+    .team-score-full {
+        text-align: center;
+    }
+    
+    .team-score-full .score {
+        font-size: 24px;
+    }
+    
+    .match-live-stats {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .match-info-section {
+        padding: 20px;
+    }
+    
+    .info-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .info-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .match-card-link {
+        padding: 15px;
+    }
+    
+    .team-logo,
+    .team-logo-placeholder {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .team-name {
+        font-size: 13px;
+    }
+    
+    .team-score {
+        font-size: 18px;
+    }
+    
+    .match-title {
+        font-size: 18px;
+    }
+    
+    .ball-item {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+/* ================================
+   Dark Mode Support
+   ================================ */
+
+@media (prefers-color-scheme: dark) {
+    .cricket-match-card,
+    .cricket-full-match {
+        background: #1e1e1e;
+        border-color: #333;
+    }
+    
+    .match-header {
+        border-color: #333;
+    }
+    
+    .match-format {
+        background: #333;
+        color: #aaa;
+    }
+    
+    .match-status {
+        background: #333;
+        color: #aaa;
+    }
+    
+    .team-name,
+    .team-name-full {
+        color: #fff;
+    }
+    
+    .match-status-note,
+    .match-result {
+        color: #eee;
+    }
+    
+    .match-details {
+        color: #999;
+    }
+    
+    .team-score-row {
+        background: #2a2a2a;
+    }
+    
+    .match-score-section {
+        background: #1a1a1a;
+    }
+    
+    .cricket-no-matches {
+        background: #2a2a2a;
+        color: #999;
+    }
+    
+    .live-batsmen,
+    .live-bowler {
+        background: #2a2a2a;
+    }
+    
+    .batsman-row,
+    .bowler-row {
+        border-color: #444;
+    }
+    
+    .batsman-name,
+    .bowler-name {
+        color: #fff;
+    }
+    
+    .info-row {
+        border-color: #333;
+    }
+    
+    .info-value {
+        color: #eee;
+    }
+}

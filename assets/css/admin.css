@@ -1,0 +1,84 @@
+/**
+ * Cricket Live Scores - Admin Styles
+ */
+
+/* Stats Box */
+.cricket-stats-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.cricket-stats-box h3 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Matches Table Enhancements */
+.wp-list-table .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.wp-list-table .status-live {
+    background: #dc3545;
+    color: white;
+}
+
+.wp-list-table .status-completed {
+    background: #28a745;
+    color: white;
+}
+
+.wp-list-table .status-scheduled {
+    background: #6c757d;
+    color: white;
+}
+
+/* Form improvements */
+.form-table .small-text {
+    width: 120px;
+}
+
+.form-table .description {
+    font-style: normal;
+    color: #666;
+}
+
+/* Sync button states */
+#cricket-sync-btn:disabled,
+#cricket-clear-cache-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Settings page sections */
+.wrap h2 {
+    padding-top: 20px;
+    border-top: 1px solid #ccd0d4;
+    margin-top: 30px;
+}
+
+.wrap h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 20px;
+}
+
+/* API Usage table */
+.form-table th {
+    width: 200px;
+}
+
+/* Shortcode display */
+.form-table code {
+    background: #f1f1f1;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+}
